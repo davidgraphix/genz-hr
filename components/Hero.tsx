@@ -237,7 +237,7 @@ export default function Hero() {
             >
               {/* Main Image */}
               <Image 
-                src="/images/hero2.jpg"
+                src="/images/hero1.jpg"
                 alt="Gen Z HR Hero"
                 fill
                 priority

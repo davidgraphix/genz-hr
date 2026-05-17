@@ -195,7 +195,7 @@ export default function AboutSection() {
       <div className="lg:hidden relative z-20 mt-16 flex items-end justify-center gap-4">
         <motion.div variants={fadeLeftVariants}>
           <Image
-            src="/images/about-left.jpg"
+            src="/images/about-left.png"
             alt="Woman portrait"
             width={180}
             height={260}
@@ -205,7 +205,7 @@ export default function AboutSection() {
 
         <motion.div variants={fadeRightVariants}>
           <Image
-            src="/images/about-right.jpg"
+            src="/images/about-right.png"
             alt="Woman portrait"
             width={180}
             height={260}
