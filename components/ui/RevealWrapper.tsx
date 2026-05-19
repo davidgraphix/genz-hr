@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef, type ReactNode, type ElementType } from "react";
 import { motion, useInView } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { fadeUpVariants } from "@/lib/motion";
@@ -12,7 +12,7 @@ interface RevealWrapperProps {
   delay?: number;
   threshold?: number;
   once?: boolean;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
 }
 
 export default function RevealWrapper({
