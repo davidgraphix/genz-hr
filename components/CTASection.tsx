@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Link from "next/link";
 import { containerVariants, fadeUpVariants } from "@/lib/motion";
 
 const INPUT_FIELDS = [

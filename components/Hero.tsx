@@ -283,7 +283,7 @@ export default function Hero() {
                     color: "var(--teal)",
                   }}
                 >
-                  // Culture Signal 001
+                   Culture Signal 001
                 </div>
 
                 {/* Quote */}

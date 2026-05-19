@@ -131,7 +131,7 @@ export default function ContentSection() {
                 className="text-[0.68rem] tracking-[0.14em] uppercase mb-3"
                 style={{ fontFamily: "var(--font-mono)", color: "var(--lime)" }}
               >
-                // {FEATURED.tag}
+                {FEATURED.tag}
               </div>
               <h3
                 className="font-display mb-3 leading-none"
@@ -187,7 +187,7 @@ export default function ContentSection() {
                   className="text-[0.68rem] tracking-[0.14em] uppercase mb-3"
                   style={{ fontFamily: "var(--font-mono)", color: "var(--lime)" }}
                 >
-                  // {item.tag}
+                  {item.tag}
                 </div>
                 <h3
                   className="font-display mb-3 leading-none"

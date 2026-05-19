@@ -2,13 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { containerVariants, fadeUpVariants, scaleUpVariants } from "@/lib/motion";
+import { containerVariants, fadeUpVariants } from "@/lib/motion";
 
-const PHILOSOPHY_WORDS = [
-  { text: "MODERN HR", stroke: true },
-  { text: "FOR THE NEXT", stroke: false },
-  { text: "GENERATION.", accent: true },
-];
+// const PHILOSOPHY_WORDS = [
+//   { text: "MODERN HR", stroke: true },
+//   { text: "FOR THE NEXT", stroke: false },
+//   { text: "GENERATION.", accent: true },
+// ];
 
 const PRINCIPLES = [
   { num: "I", text: "Credible in substance" },
