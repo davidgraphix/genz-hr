@@ -73,6 +73,7 @@ export default function Navbar() {
         <Link
           href="#contact"
           className="hidden lg:inline-flex btn-primary text-[0.75rem]"
+          style={{borderRadius: "1rem"}}
         >
           Join the Movement
         </Link>
@@ -147,6 +148,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55, duration: 0.5 }}
               className="mt-4"
+              style={{ borderRadius: "1rem" }}
             >
               <Link href="#contact" onClick={closeMenu} className="btn-primary">
                 Join the Movement →

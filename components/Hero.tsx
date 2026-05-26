@@ -15,7 +15,6 @@ const HERO_STATS = [
 const TAGS = [
   { label: "People First", color: "lime" },
   { label: "Culture Forward", color: "purple" },
-  { label: "Future Ready", color: "teal" },
 ] as const;
 
 const tagColors = {
@@ -29,7 +28,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen overflow-hidden"
-      style={{ paddingTop: "90px" }}
+      style={{ paddingTop: "0px" }}
     >
       {/* Background */}
       <div
@@ -83,50 +82,49 @@ export default function Hero() {
         </h1>
       </div>
 
-      <div className="relative z-10 max-w-[1500px] mx-auto grid lg:grid-cols-2 min-h-screen items-center px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 max-w-[1500px] mx-auto grid lg:grid-cols-2 min-h-screen items-start px-20 md:px-10 lg:px-16">
         {/* ───────────────── LEFT CONTENT ───────────────── */}
         <motion.div
-          className="relative z-20 pt-10 lg:pt-0"
+          className="relative z-20 pt-2 lg:pt-8"
           variants={heroContainerVariants}
           initial="hidden"
           animate="visible"
         >
           {/* Eyebrow */}
-          <motion.div variants={heroItemVariants} className="eyebrow mb-6">
+          <motion.div variants={heroItemVariants} className="eyebrow mb-3 -mt-1">
             Est. Now · For The Future
           </motion.div>
 
           {/* Heading */}
           <motion.h1
             variants={heroItemVariants}
-            className="font-display leading-none tracking-display mb-7"
+            className="font-display leading-none tracking-display mb-3"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(4.5rem, 8vw, 9rem)",
+              fontSize: "clamp(4.1rem, 5.5vw, 7rem)",
               lineHeight: "0.88",
               letterSpacing: "0.02em",
             }}
           >
-            HR FOR
+            WORK SHOULD
             <br />
-            THE{" "}
             <span
               style={{
                 color: "transparent",
                 WebkitTextStroke: "1px var(--white)",
               }}
             >
-              NEXT
+              FEEL BETTER
             </span>
             <br />
-            GEN
+            THAN THIS.
             <span style={{ color: "var(--lime)" }}>.</span>
           </motion.h1>
 
           {/* Description */}
           <motion.p
             variants={heroItemVariants}
-            className="text-[1.05rem] leading-[1.9] max-w-[500px] mb-9"
+            className="text-[1.05rem] leading-[1.9] max-w-[500px] mb-4"
             style={{ color: "var(--muted)" }}
           >
             We&apos;re building conversations, culture, and career clarity for
@@ -140,13 +138,21 @@ export default function Hero() {
           {/* Actions */}
           <motion.div
             variants={heroItemVariants}
-            className="flex gap-3 flex-wrap mb-12"
+            className="flex gap-3 flex-wrap mb-6 rounded-[1rem]"
           >
-            <Link href="#contact" className="btn-primary">
+            {/* <Link
+              href="#contact"
+              className="btn-primary rounded-[1rem]"
+              style={{ borderRadius: "1rem" }}
+            >
               Join the Movement →
-            </Link>
+            </Link> */}
 
-            <Link href="#conversations" className="btn-outline">
+            <Link
+              href="#conversations"
+              className="btn-outline rounded-[1rem]"
+              style={{ borderRadius: "1rem" }}
+            >
               Explore Conversations
             </Link>
           </motion.div>
@@ -159,7 +165,7 @@ export default function Hero() {
             {TAGS.map((tag) => (
               <span
                 key={tag.label}
-                className="text-[0.7rem] font-semibold tracking-[0.08em] uppercase px-3 py-1 rounded-full backdrop-blur-md"
+                className="text-[0.7rem] font-semibold tracking-[0.08em] uppercase px-3 py-1 rounded-[1rem] backdrop-blur-md"
                 style={{
                   border: `1px solid ${tagColors[tag.color].border}`,
                   color: tagColors[tag.color].color,
@@ -169,24 +175,6 @@ export default function Hero() {
                 {tag.label}
               </span>
             ))}
-          </motion.div>
-
-          {/* Scroll */}
-          <motion.div
-            variants={heroItemVariants}
-            className="mt-16 flex items-center gap-3"
-            style={{ color: "var(--muted-2)" }}
-          >
-            <div
-              className="w-[1px] h-10"
-              style={{ background: "var(--border-2)" }}
-            />
-            <span
-              className="text-[0.7rem] tracking-[0.18em] uppercase"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              Scroll to explore
-            </span>
           </motion.div>
         </motion.div>
 
@@ -199,7 +187,7 @@ export default function Hero() {
             ease: [0.19, 1, 0.22, 1],
             delay: 0.3,
           }}
-          className="relative hidden lg:flex items-center justify-center h-full"
+          className="relative hidden lg:flex items-start justify-center py-8 h-full"
         >
           {/* Floating Card */}
           <motion.div
@@ -213,7 +201,7 @@ export default function Hero() {
           >
             {/* Glass background */}
             <div
-              className="absolute inset-0 rounded-[2rem] blur-2xl"
+              className="absolute inset-0 rounded-[1rem] blur-2xl"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(123,47,190,0.25), rgba(0,212,170,0.12))",
@@ -223,9 +211,9 @@ export default function Hero() {
             <div
               className="
                 relative
-                w-[560px]
-                h-[720px]
-                rounded-[2rem]
+                w-[460px]
+                h-[500px]
+                rounded-[1rem]
                 overflow-hidden
                 border
                 backdrop-blur-xl
@@ -266,8 +254,8 @@ export default function Hero() {
                   left-6
                   bottom-6
                   right-6
-                  rounded-2xl
-                  p-6
+                  rounded-[1rem]
+                  p-3
                   backdrop-blur-xl
                 "
                 style={{
@@ -297,7 +285,7 @@ export default function Hero() {
                   {HERO_STATS.slice(0, 2).map((stat) => (
                     <div
                       key={stat.value}
-                      className="rounded-xl p-4"
+                      className="rounded-[0.5rem] p-2"
                       style={{
                         background: "rgba(255,255,255,0.03)",
                         border: "1px solid rgba(255,255,255,0.05)",
@@ -306,7 +294,7 @@ export default function Hero() {
                       <div
                         className="font-display leading-none"
                         style={{
-                          fontSize: "2rem",
+                          fontSize: "1.5rem",
                           color: "var(--lime)",
                         }}
                       >
@@ -336,10 +324,10 @@ export default function Hero() {
                   absolute
                   top-6
                   right-6
-                  px-5
-                  py-3
-                  rounded-full
-                  text-[0.7rem]
+                  px-4
+                  py-2
+                  rounded-[1rem]
+                  text-[0.6rem]
                   font-semibold
                   uppercase
                   tracking-[0.14em]
