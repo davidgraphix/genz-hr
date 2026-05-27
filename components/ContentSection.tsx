@@ -2,38 +2,58 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Link from "next/link";
-import { containerVariants, fadeUpVariants, cardGridVariants, cardVariants } from "@/lib/motion";
+import {
+  containerVariants,
+  fadeUpVariants,
+  cardGridVariants,
+  cardVariants,
+} from "@/lib/motion";
 
 const FEATURED = {
-  tag: "Featured · Career Intelligence",
+  tag: "Career Reality",
   title: "The Real Reason You Keep Leaving Jobs After 18 Months",
   excerpt:
-    "It's not you. It's not them. It's the silent mismatch between expectation and reality that nobody talks about during onboarding. We're opening the conversation everyone's too afraid to start.",
-  readTime: "8 min read",
+    "Sometimes it is not laziness or lack of ambition. It is the gap between what the workplace promised and what it actually became.",
 };
 
-const SECONDARY = [
+const CONVERSATIONS = [
   {
     tag: "Workplace Culture",
-    title: "HUSTLE CULTURE NEEDS TO RETIRE",
+    title: "Hustle Culture Needs To Retire",
     excerpt:
-      "Productivity theater isn't ambition. Here's the distinction every young professional needs to make before burning out for someone else's dream.",
-    readTime: "5 min read",
+      "Productivity should not mean burnout. We are talking about ambition without self-destruction.",
+    tone: "green",
   },
   {
     tag: "HR Education",
-    title: "WHAT HR ACTUALLY DOES (AND DOESN'T DO)",
+    title: "What HR Actually Does",
     excerpt:
-      "The honest guide nobody gives you at orientation. Your rights, their limits, and the grey area everyone pretends doesn't exist.",
-    readTime: "6 min read",
+      "A clearer look at your rights, HR boundaries, and the workplace grey areas nobody explains properly.",
+    tone: "black",
+  },
+  {
+    tag: "Community",
+    title: "Finding Your People at Work",
+    excerpt:
+      "Because work feels different when you have people who understand the pressure, politics, and growth journey.",
+    tone: "green",
+  },
+  {
+    tag: "Career Clarity",
+    title: "How to Say No and Still Grow",
+    excerpt:
+      "Boundaries are not rebellion. They are part of building a healthier professional life.",
+    tone: "black",
   },
 ];
 
-const SMALL = [
-  { tag: "Community", title: "Finding Your People at Work", readTime: "3 min" },
-  { tag: "Career Clarity", title: "How to Say No and Still Get Promoted", readTime: "4 min" },
-  { tag: "Conversations", title: "The 'Culture Fit' Excuse Is Discriminatory", readTime: "5 min" },
+const QUICK_TALKS = [
+  "Burnout is real",
+  "Salary transparency",
+  "Work-life balance",
+  "Toxic bosses",
+  "Office politics",
+  "Career confusion",
 ];
 
 export default function ContentSection() {
@@ -44,219 +64,229 @@ export default function ContentSection() {
     <section
       id="community"
       ref={ref}
-      className="py-24 lg:py-36 px-6 md:px-10 lg:px-16"
-      style={{ background: "var(--surface)" }}
+      className="relative overflow-hidden px-6 py-24 md:px-10 lg:px-16 lg:py-36"
+      style={{ background: "#d2ff28" }}
     >
-      <div className="max-w-[1300px] mx-auto">
-
-        {/* ── Header ── */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-14"
+      {/* Background oversized text */}
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <span
+          className="whitespace-nowrap uppercase"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(8rem, 20vw, 24rem)",
+            lineHeight: 1,
+            letterSpacing: "0.02em",
+            color: "rgba(11,11,12,0.055)",
+          }}
         >
+          REAL TALK
+        </span>
+      </div>
+
+      {/* Soft accents */}
+      <div className="absolute left-[-180px] top-[-180px] h-[420px] w-[420px] rounded-full bg-white/30 blur-[90px]" />
+      <div className="absolute bottom-[-200px] right-[-180px] h-[460px] w-[460px] rounded-full bg-[#00a86b]/25 blur-[100px]" />
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        className="relative z-10 mx-auto max-w-[1250px]"
+      >
+        {/* Header */}
+        <div className="mb-16 grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-end">
           <div>
-            <motion.div variants={fadeUpVariants} className="eyebrow mb-4">
-              Community &amp; Content
-            </motion.div>
-            <motion.h2
+            <motion.div
               variants={fadeUpVariants}
-              className="font-display leading-none"
+              className="mb-5 flex items-center gap-3 text-[0.68rem] font-black uppercase tracking-[0.22em]"
               style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(3rem, 5.5vw, 6rem)",
-                lineHeight: "0.9",
-                letterSpacing: "0.02em",
+                color: "#0b0b0c",
+                fontFamily: "var(--font-mono)",
               }}
             >
-              THE
+              <span className="inline-block h-[1px] w-8 bg-[#0b0b0c]" />
+              Community & Culture
+            </motion.div>
+
+            <motion.h2
+              variants={fadeUpVariants}
+              className="uppercase"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(3.4rem, 7vw, 7.5rem)",
+                lineHeight: "0.86",
+                letterSpacing: "0.01em",
+                color: "#0b0b0c",
+              }}
+            >
+              The
               <br />
-              CONVERSATION
+              Conversation
               <br />
-              <span style={{ color: "var(--purple-light)" }}>STARTS</span> HERE.
+              <span style={{ color: "#00a86b" }}>Starts</span> Here.
             </motion.h2>
           </div>
 
-          <motion.div variants={fadeUpVariants}>
-            <Link href="#" className="btn-outline">
-              View All Conversations →
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* ── Main Editorial Grid ── */}
-        <motion.div
-          variants={cardGridVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-[1.5fr_1fr] gap-[1px]"
-          style={{ background: "var(--border)" }}
-        >
-          {/* Featured — large left */}
-          <motion.div
-            variants={cardVariants}
-            className="relative min-h-[460px] lg:min-h-[520px] flex flex-col justify-end p-8 lg:p-10 overflow-hidden group cursor-pointer"
-            style={{ background: "var(--bg)" }}
+          <motion.p
+            variants={fadeUpVariants}
+            className="max-w-[520px] text-base font-medium leading-8 md:text-lg"
+            style={{ color: "rgba(11,11,12,0.72)" }}
           >
-            {/* Gradient overlay */}
-            <div
-              className="absolute inset-0 transition-opacity duration-500"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(123,47,190,0.55) 0%, rgba(67,97,238,0.35) 100%)",
-              }}
-            />
-            {/* Bottom fade */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(6,6,14,0.9) 0%, rgba(6,6,14,0.1) 60%)",
-              }}
-            />
+            Real workplace talks for young professionals navigating culture,
+            career pressure, burnout, growth, boundaries, and everything in
+            between.
+          </motion.p>
+        </div>
 
-            {/* Grid pattern decoration */}
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.1) 40px, rgba(255,255,255,0.1) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.1) 40px, rgba(255,255,255,0.1) 41px)",
-              }}
-            />
-
-            {/* Content */}
-            <div className="relative z-10">
+        {/* Featured statement */}
+        <motion.div
+          variants={fadeUpVariants}
+          className="mb-6 overflow-hidden rounded-[2.4rem] border border-black/10 bg-[#0b0b0c] p-7 md:p-10 lg:p-12"
+        >
+          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+            <div>
               <div
-                className="text-[0.68rem] tracking-[0.14em] uppercase mb-3"
-                style={{ fontFamily: "var(--font-mono)", color: "var(--lime)" }}
+                className="mb-5 inline-flex rounded-full border border-[#d2ff28]/30 px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.18em]"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  color: "#d2ff28",
+                }}
               >
                 {FEATURED.tag}
               </div>
+
+              <p
+                className="max-w-[360px] text-sm leading-7"
+                style={{ color: "rgba(248,248,242,0.62)" }}
+              >
+                Not every workplace issue needs corporate grammar. Some things
+                just need honest conversation.
+              </p>
+            </div>
+
+            <div>
               <h3
-                className="font-display mb-3 leading-none"
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
-                  letterSpacing: "0.03em",
-                  color: "var(--white)",
+                  fontSize: "clamp(2.5rem, 5vw, 5.8rem)",
+                  lineHeight: "0.9",
+                  letterSpacing: "0.01em",
+                  color: "#f8f8f2",
                 }}
               >
                 {FEATURED.title}
               </h3>
+
               <p
-                className="text-[0.9rem] leading-[1.65] mb-4 max-w-[520px]"
-                style={{ color: "rgba(255,255,255,0.62)" }}
+                className="mt-7 max-w-[720px] text-base leading-8 md:text-lg"
+                style={{ color: "rgba(248,248,242,0.72)" }}
               >
                 {FEATURED.excerpt}
               </p>
-              <div className="flex items-center justify-between">
-                <span
-                  className="text-[0.7rem] tracking-[0.1em] uppercase"
-                  style={{ fontFamily: "var(--font-mono)", color: "var(--muted)" }}
-                >
-                  {FEATURED.readTime}
-                </span>
-                <span
-                  className="text-[0.75rem] font-bold tracking-[0.1em] uppercase flex items-center gap-2 transition-gap duration-200"
-                  style={{ color: "var(--lime)" }}
-                >
-                  Read More
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    →
-                  </motion.span>
-                </span>
-              </div>
             </div>
-          </motion.div>
-
-          {/* Right column — two cards stacked */}
-          <div className="flex flex-col gap-[1px]">
-            {SECONDARY.map((item) => (
-              <motion.div
-                key={item.tag}
-                variants={cardVariants}
-                whileHover={{ backgroundColor: "rgba(123,47,190,0.06)" }}
-                className="flex-1 p-7 lg:p-8 cursor-pointer transition-colors duration-300"
-                style={{ background: "var(--bg)" }}
-              >
-                <div
-                  className="text-[0.68rem] tracking-[0.14em] uppercase mb-3"
-                  style={{ fontFamily: "var(--font-mono)", color: "var(--lime)" }}
-                >
-                  {item.tag}
-                </div>
-                <h3
-                  className="font-display mb-3 leading-none"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "1.9rem",
-                    letterSpacing: "0.04em",
-                    color: "var(--white)",
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="text-[0.87rem] leading-[1.65] mb-4"
-                  style={{ color: "var(--muted)" }}
-                >
-                  {item.excerpt}
-                </p>
-                <span
-                  className="text-[0.72rem] font-bold tracking-[0.1em] uppercase"
-                  style={{ color: "var(--lime)" }}
-                >
-                  Read More →
-                </span>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
 
-        {/* ── Small cards row ── */}
+        {/* Conversation cards */}
         <motion.div
           variants={cardGridVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid sm:grid-cols-3 gap-[1px] mt-[1px]"
-          style={{ background: "var(--border)" }}
+          className="grid gap-6 md:grid-cols-2"
         >
-          {SMALL.map((item, i) => (
-            <motion.div
-              key={i}
-              variants={cardVariants}
-              whileHover={{ backgroundColor: "rgba(200,244,0,0.03)" }}
-              className="p-6 flex items-center justify-between gap-4 cursor-pointer transition-colors duration-200 group"
-              style={{ background: "var(--bg)" }}
-            >
-              <div>
-                <div
-                  className="text-[0.65rem] tracking-[0.12em] uppercase mb-1"
-                  style={{ fontFamily: "var(--font-mono)", color: "var(--muted)" }}
-                >
-                  {item.tag}
-                </div>
-                <h4
-                  className="font-semibold text-[0.92rem] text-off-white group-hover:text-lime transition-colors"
-                  style={{ lineHeight: 1.45 }}
-                >
-                  {item.title}
-                </h4>
-              </div>
-              <span
-                className="text-[0.68rem] shrink-0"
-                style={{ fontFamily: "var(--font-mono)", color: "var(--muted)" }}
+          {CONVERSATIONS.map((item, index) => {
+            const isGreen = item.tone === "green";
+
+            return (
+              <motion.div
+                key={item.title}
+                variants={cardVariants}
+                className="group relative min-h-[300px] overflow-hidden rounded-[2rem] border border-black/10 p-7 md:p-8"
+                style={{
+                  background: isGreen ? "#00a86b" : "#0b0b0c",
+                  color: isGreen ? "#0b0b0c" : "#f8f8f2",
+                }}
               >
-                {item.readTime}
-              </span>
-            </motion.div>
-          ))}
+                {/* Decorative number */}
+                <span
+                  className="absolute right-6 top-4 text-[5rem] font-black leading-none opacity-10"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  0{index + 1}
+                </span>
+
+                <div className="relative z-10 flex h-full flex-col justify-between">
+                  <div>
+                    <div
+                      className="mb-5 text-[0.68rem] font-black uppercase tracking-[0.18em]"
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        color: isGreen ? "rgba(11,11,12,0.7)" : "#d2ff28",
+                      }}
+                    >
+                      {item.tag}
+                    </div>
+
+                    <h3
+                      className="max-w-[520px]"
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "clamp(2.2rem, 4vw, 4.1rem)",
+                        lineHeight: "0.92",
+                        letterSpacing: "0.01em",
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  <p
+                    className="mt-10 max-w-[520px] text-sm font-medium leading-7 md:text-base"
+                    style={{
+                      color: isGreen
+                        ? "rgba(11,11,12,0.72)"
+                        : "rgba(248,248,242,0.68)",
+                    }}
+                  >
+                    {item.excerpt}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
-      </div>
+
+        {/* Quick talk tags */}
+        <motion.div
+          variants={fadeUpVariants}
+          className="mt-8 rounded-[2rem] border border-black/10 bg-white/35 p-6 backdrop-blur-md"
+        >
+          <div className="flex flex-wrap items-center gap-3">
+            <span
+              className="mr-2 text-[0.68rem] font-black uppercase tracking-[0.18em]"
+              style={{
+                color: "#0b0b0c",
+                fontFamily: "var(--font-mono)",
+              }}
+            >
+              Also talking about:
+            </span>
+
+            {QUICK_TALKS.map((talk) => (
+              <span
+                key={talk}
+                className="rounded-full border border-black/15 bg-[#0b0b0c] px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.08em]"
+                style={{ color: "#d2ff28" }}
+              >
+                {talk}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

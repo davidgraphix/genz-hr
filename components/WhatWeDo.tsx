@@ -17,30 +17,30 @@ const CARDS = [
     title: "WORKPLACE CULTURE",
     desc: "Deconstructing toxic norms, celebrating what works, and imagining workplaces worth showing up for — remote, hybrid, or in-person.",
   },
+  // {
+  //   num: "03 / 06",
+  //   icon: "📚",
+  //   title: "HR EDUCATION",
+  //   desc: "Demystifying how HR actually works — from hiring decisions to workplace rights — in language real humans understand.",
+  // },
+  // {
+  //   num: "04 / 06",
+  //   icon: "🚀",
+  //   title: "PROFESSIONAL GROWTH",
+  //   desc: "Tools, frameworks, and real stories for leveling up your career without losing yourself or your values in the process.",
+  // },
   {
     num: "03 / 06",
-    icon: "📚",
-    title: "HR EDUCATION",
-    desc: "Demystifying how HR actually works — from hiring decisions to workplace rights — in language real humans understand.",
-  },
-  {
-    num: "04 / 06",
-    icon: "🚀",
-    title: "PROFESSIONAL GROWTH",
-    desc: "Tools, frameworks, and real stories for leveling up your career without losing yourself or your values in the process.",
-  },
-  {
-    num: "05 / 06",
     icon: "🤝",
     title: "COMMUNITY BUILDING",
     desc: "Creating spaces where Gen Z professionals connect, collaborate, and co-create the future of work together — with intention.",
   },
-  {
-    num: "06 / 06",
-    icon: "🧭",
-    title: "CAREER CLARITY",
-    desc: "Helping young professionals cut through the noise and make decisions deeply aligned with who they actually are — not who they're told to be.",
-  },
+  // {
+  //   num: "06 / 06",
+  //   icon: "🧭",
+  //   title: "CAREER CLARITY",
+  //   desc: "Helping young professionals cut through the noise and make decisions deeply aligned with who they actually are — not who they're told to be.",
+  // },
 ];
 
 export default function WhatWeDo() {

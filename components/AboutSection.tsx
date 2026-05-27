@@ -3,12 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import {
-  containerVariants,
-  fadeUpVariants,
-  fadeLeftVariants,
-  fadeRightVariants,
-} from "@/lib/motion";
+import { containerVariants, fadeUpVariants } from "@/lib/motion";
 
 export default function AboutSection() {
   const ref = useRef<HTMLElement>(null);
@@ -22,21 +17,39 @@ export default function AboutSection() {
     <section
       id="about"
       ref={ref}
-      className="relative overflow-hidden py-24 lg:py-36 px-6 md:px-10 lg:px-16"
+      className="relative overflow-hidden min-h-screen px-6 md:px-10 lg:px-16 py-24 lg:py-0 flex items-center"
       style={{
-        background: `
-          radial-gradient(circle at top left, rgba(123,47,190,0.08), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(177,255,0,0.05), transparent 30%),
-          #0b0b0c
-        `,
+        background: "#0b0b0c",
       }}
     >
+      {/* Editorial Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/about-bg.png"
+          alt="Gen Z HR editorial background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/45" />
+
+        {/* Center focus overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.18),rgba(0,0,0,0.68))]" />
+
+        {/* Color mood overlays */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(123,47,190,0.22),transparent_32%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(210,255,40,0.12),transparent_35%)]" />
+      </div>
+
       {/* Background texture */}
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('/noise.png')] bg-repeat pointer-events-none" />
+      <div className="absolute inset-0 z-[1] opacity-[0.04] bg-[url('/noise.png')] bg-repeat pointer-events-none" />
 
       {/* Huge background text */}
       <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        className="absolute inset-0 z-[2] flex items-center justify-center pointer-events-none select-none"
         aria-hidden="true"
       >
         <h1
@@ -44,7 +57,7 @@ export default function AboutSection() {
           style={{
             fontSize: "clamp(7rem, 20vw, 18rem)",
             color: "transparent",
-            WebkitTextStroke: "1px rgba(255,255,255,0.05)",
+            WebkitTextStroke: "1px rgba(255,255,255,0.06)",
             lineHeight: 1,
           }}
         >
@@ -52,61 +65,24 @@ export default function AboutSection() {
         </h1>
       </div>
 
-      {/* Floating blur */}
-      <div className="absolute top-24 left-20 w-[300px] h-[300px] rounded-full bg-purple-700/10 blur-[120px]" />
-      <div className="absolute bottom-10 right-10 w-[300px] h-[300px] rounded-full bg-lime-400/10 blur-[120px]" />
+      {/* Floating blur accents */}
+      <div className="absolute top-24 left-20 z-[3] w-[300px] h-[300px] rounded-full bg-purple-700/20 blur-[120px]" />
+      <div className="absolute bottom-10 right-10 z-[3] w-[300px] h-[300px] rounded-full bg-lime-400/15 blur-[120px]" />
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="relative z-10 max-w-[1450px] mx-auto min-h-[750px] flex items-center justify-center"
+        className="relative z-10 max-w-[1450px] mx-auto w-full min-h-[760px] flex items-center justify-center"
       >
-        {/* LEFT IMAGE */}
-        <motion.div
-          variants={fadeLeftVariants}
-          className="absolute left-0 bottom-0 hidden lg:block"
-        >
-          <div className="relative">
-            {/* Glow */}
-            <div className="absolute inset-0 bg-purple-600/20 blur-[90px] rounded-full" />
-
-            <Image
-              src="/images/about-left.png"
-              alt="Woman portrait"
-              width={500}
-              height={760}
-              priority
-              className="relative z-10 object-contain drop-shadow-[0_25px_80px_rgba(0,0,0,0.7)]"
-            />
-          </div>
-        </motion.div>
-
-        {/* RIGHT IMAGE */}
-        <motion.div
-          variants={fadeRightVariants}
-          className="absolute right-0 bottom-0 hidden lg:block"
-        >
-          <div className="relative">
-            {/* Glow */}
-            <div className="absolute inset-0 bg-lime-300/10 blur-[90px] rounded-full" />
-
-            <Image
-              src="/images/about-right.png"
-              alt="Woman portrait"
-              width={470}
-              height={720}
-              priority
-              className="relative z-10 object-contain drop-shadow-[0_25px_80px_rgba(0,0,0,0.7)]"
-            />
-          </div>
-        </motion.div>
-
         {/* CENTER CONTENT */}
         <motion.div
           variants={fadeUpVariants}
-          className="relative z-20 text-center max-w-[650px]"
+          className="relative z-20 text-center max-w-[760px]"
         >
+          {/* Soft glass backing */}
+          <div className="absolute inset-[-42px] -z-10 rounded-[3rem] bg-black/20 backdrop-blur-[2px] border border-white/5" />
+
           {/* Top dots */}
           <div className="flex items-center justify-center gap-3 mb-10">
             <span className="w-3 h-3 rounded-full bg-[#d2ff28]" />
@@ -127,18 +103,21 @@ export default function AboutSection() {
 
           {/* Heading */}
           <h2
-            className="font-black uppercase leading-[0.9]"
+            className="uppercase leading-[0.85] tracking-[-0.08em]"
             style={{
-              fontSize: "clamp(3rem,6vw,6.8rem)",
+              fontSize: "clamp(3.4rem, 7vw, 7.8rem)",
               color: "#f5f5f0",
+              fontFamily: "var(--font-bricolage)",
+              fontWeight: 900,
             }}
           >
             HR FOR THE
             <br />
             <span
+              className="inline-block rotate-[-2deg]"
               style={{
-                color: "transparent",
-                WebkitTextStroke: "1px rgba(255,255,255,0.5)",
+                color: "#d2ff28",
+                textShadow: "0 0 35px rgba(210,255,40,0.35)",
               }}
             >
               NEW
@@ -148,9 +127,9 @@ export default function AboutSection() {
 
           {/* Description */}
           <p
-            className="mt-8 text-[1.05rem] leading-[1.9] px-4 md:px-0"
+            className="mt-8 text-[1rem] md:text-[1.08rem] leading-[1.85] px-4 md:px-0 max-w-[680px] mx-auto"
             style={{
-              color: "rgba(245,245,240,0.72)",
+              color: "rgba(245,245,240,0.82)",
             }}
           >
             Gen Z HR is redefining workplace culture for a generation that
@@ -159,13 +138,13 @@ export default function AboutSection() {
           </p>
 
           <p
-            className="mt-5 text-[1.05rem] leading-[1.9] px-4 md:px-0"
+            className="mt-5 text-[1rem] md:text-[1.08rem] leading-[1.85] px-4 md:px-0 max-w-[680px] mx-auto"
             style={{
-              color: "rgba(245,245,240,0.72)",
+              color: "rgba(245,245,240,0.82)",
             }}
           >
             We create conversations around modern work, toxic environments,
-            leadership, career growth, AI, burnout, and the future of work —
+            leadership, career growth, AI, burnout, and the future of work
             without the corporate filter.
           </p>
 
@@ -181,6 +160,7 @@ export default function AboutSection() {
                 text-sm font-semibold
                 transition-all duration-300
                 border border-white/10
+                text-white
                 bg-gradient-to-r from-[#7b2fbe] to-[#5221a0]
                 hover:shadow-[0_0_40px_rgba(123,47,190,0.5)]
               "
@@ -190,29 +170,6 @@ export default function AboutSection() {
           </motion.div>
         </motion.div>
       </motion.div>
-
-      {/* MOBILE IMAGES */}
-      <div className="lg:hidden relative z-20 mt-16 flex items-end justify-center gap-4">
-        <motion.div variants={fadeLeftVariants}>
-          <Image
-            src="/images/about-left.png"
-            alt="Woman portrait"
-            width={180}
-            height={260}
-            className="object-contain"
-          />
-        </motion.div>
-
-        <motion.div variants={fadeRightVariants}>
-          <Image
-            src="/images/about-right.png"
-            alt="Woman portrait"
-            width={180}
-            height={260}
-            className="object-contain"
-          />
-        </motion.div>
-      </div>
     </section>
   );
 }

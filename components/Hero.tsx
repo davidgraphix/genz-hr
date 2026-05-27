@@ -91,14 +91,14 @@ export default function Hero() {
           animate="visible"
         >
           {/* Eyebrow */}
-          <motion.div variants={heroItemVariants} className="eyebrow mb-3 -mt-1">
+          <motion.div variants={heroItemVariants} className="eyebrow mb-4 -mt-1">
             Est. Now · For The Future
           </motion.div>
 
           {/* Heading */}
           <motion.h1
             variants={heroItemVariants}
-            className="font-display leading-none tracking-display mb-3"
+            className="font-display leading-none tracking-display mb-5"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(4.1rem, 5.5vw, 7rem)",
@@ -114,7 +114,7 @@ export default function Hero() {
                 WebkitTextStroke: "1px var(--white)",
               }}
             >
-              FEEL BETTER
+              BE BETTER
             </span>
             <br />
             THAN THIS.
@@ -124,21 +124,19 @@ export default function Hero() {
           {/* Description */}
           <motion.p
             variants={heroItemVariants}
-            className="text-[1.05rem] leading-[1.9] max-w-[500px] mb-4"
+            className="text-[1.05rem] leading-[1.9] max-w-[500px] mb-6"
             style={{ color: "var(--muted)" }}
           >
-            We&apos;re building conversations, culture, and career clarity for
-            modern professionals who{" "}
+            Real talk on work, culture, and career growth for{" "}
             <span className="text-off-white font-semibold">
-              refuse outdated workplace systems
+              a generation done with outdated workplace rules.
             </span>{" "}
-            and want something real.
           </motion.p>
 
           {/* Actions */}
           <motion.div
             variants={heroItemVariants}
-            className="flex gap-3 flex-wrap mb-6 rounded-[1rem]"
+            className="flex gap-3 flex-wrap mb-8 rounded-[1rem]"
           >
             {/* <Link
               href="#contact"
@@ -150,7 +148,7 @@ export default function Hero() {
 
             <Link
               href="#conversations"
-              className="btn-outline rounded-[1rem]"
+              className="btn-primary rounded-[1rem]"
               style={{ borderRadius: "1rem" }}
             >
               Explore Conversations
@@ -276,8 +274,7 @@ export default function Hero() {
 
                 {/* Quote */}
                 <p className="text-[1rem] leading-[1.8] text-off-white font-medium mb-5">
-                  “The future of work belongs to people brave enough to rebuild
-                  workplace culture from scratch.”
+                  “The future of work belongs to the ones bold enough to change the culture.”
                 </p>
 
                 {/* Stats */}

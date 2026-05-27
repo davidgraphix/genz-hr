@@ -27,10 +27,55 @@ const CONNECT_COL = [
 ];
 
 const SOCIAL = [
-  { label: "IG", href: "#", full: "Instagram" },
-  { label: "TK", href: "#", full: "TikTok" },
-  { label: "LI", href: "#", full: "LinkedIn" },
-  { label: "X", href: "#", full: "X / Twitter" },
+  {
+    label: "Instagram",
+    href: "#",
+    full: "Instagram",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <path d="M17.5 6.5h.01" />
+      </svg>
+    ),
+  },
+  {
+    label: "TikTok",
+    href: "#",
+    full: "TikTok",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+        <path d="M17 2v6a4 4 0 1 1-4 4h-1" />
+        <path d="M10 14.5A4.5 4.5 0 1 1 14.5 10V22" />
+      </svg>
+    ),
+  },
+  {
+    label: "LinkedIn",
+    href: "#",
+    full: "LinkedIn",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+        <path d="M4 4h16v16H4z" />
+        <path d="M8 11v6" />
+        <path d="M8 8v1" />
+        <path d="M12 17v-4" />
+        <path d="M16 17v-4" />
+        <path d="M12 13h4" />
+      </svg>
+    ),
+  },
+  {
+    label: "X",
+    href: "#",
+    full: "X / Twitter",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+        <path d="M6 6l12 12" />
+        <path d="M18 6L6 18" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Footer() {
@@ -43,13 +88,13 @@ export default function Footer() {
       }}
     >
       {/* ── Top grid ── */}
-      <div className="max-w-[1300px] mx-auto grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 lg:gap-16 mb-16">
+      <div className="max-w-[1300px] mx-auto grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 lg:gap-16 mb-16">
 
         {/* Brand col */}
         <div>
           {/* Logo */}
            <Link href="#home" >
-                    <Image src="/logo2.png" alt="Gen Z HR logo" width={90} height={80} priority />
+                    <Image src="/logo3.png" alt="Gen Z HR logo" width={90} height={80} priority />
                     
                   </Link>
 
@@ -85,7 +130,7 @@ export default function Footer() {
                   (e.currentTarget as HTMLElement).style.background = "transparent";
                 }}
               >
-                {s.label}
+                {s.icon}
               </Link>
             ))}
           </div>
@@ -153,28 +198,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Connect col */}
-        <div>
-          <div
-            className="text-[0.68rem] tracking-[0.14em] uppercase mb-5"
-            style={{ fontFamily: "var(--font-mono)", color: "var(--white)" }}
-          >
-            Connect
-          </div>
-          <ul className="flex flex-col gap-3">
-            {CONNECT_COL.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="text-[0.9rem] transition-colors duration-200 hover:text-off-white"
-                  style={{ color: "var(--muted)" }}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      
       </div>
 
       {/* ── Divider ── */}
