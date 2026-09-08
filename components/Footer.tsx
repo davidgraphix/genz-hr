@@ -19,12 +19,12 @@ const TOPICS_COL = [
   { label: "Community", href: "#" },
 ];
 
-const CONNECT_COL = [
-  { label: "Join the Movement", href: "#contact" },
-  { label: "Work With Us", href: "#" },
-  { label: "Press & Media", href: "#" },
-  { label: "Contact Us", href: "#contact" },
-];
+// const CONNECT_COL = [
+//   { label: "Join the Movement", href: "#contact" },
+//   { label: "Work With Us", href: "#" },
+//   { label: "Press & Media", href: "#" },
+//   { label: "Contact Us", href: "#contact" },
+// ];
 
 const SOCIAL = [
   {
